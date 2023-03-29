@@ -1,9 +1,17 @@
+import Clients from "@/components/pages/Home/Clients";
+import FeaturedWorks from "@/components/pages/Home/FeaturedWorks";
+import Hero from "@/components/pages/Home/Hero";
+import Mission from "@/components/pages/Home/Mission";
+import Services from "@/components/pages/Home/Services";
+
 export default function Home() {
   return (
     <>
-      <h1 className="text-3xl font-bold underline text-slate-600">
-        Hello world!
-      </h1>
+      <Hero/>
+      <Mission/>
+      <Services/>
+      <FeaturedWorks/>
+      <Clients/>
     </>
   )
 }

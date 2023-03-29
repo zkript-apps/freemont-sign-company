@@ -29,7 +29,7 @@ const MobileMenu = ({ name, url, subMenu }: { name: string, url: string, subMenu
     };
     return (
         <>
-            <div className="group hover:cursor-pointer py-3" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            <div className="z-50 group hover:cursor-pointer py-3" onClick={() => setIsMenuOpen(!isMenuOpen)}>
                 <div className="flex">
                     {subMenu.length > 0 ? (
                         <>

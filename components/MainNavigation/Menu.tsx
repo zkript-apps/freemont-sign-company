@@ -30,7 +30,7 @@ const Menu = ({ name, url, subMenu }: { name: string, url: string, subMenu: { na
     };
     return (
         <motion.div
-            className="menu-item group"
+            className="z-50"
             onHoverStart={toggleHoverMenu}
             onHoverEnd={toggleHoverMenu}
         >
