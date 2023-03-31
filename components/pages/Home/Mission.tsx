@@ -1,7 +1,10 @@
 import Image from 'next/image'
 import React from 'react'
+import { useForm } from "react-hook-form";
 
 const Mission = () => {
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const onSubmit = data => console.log(data);
     return (
         <div className="py-24 px-8 xl:px-80">
             <div className="flex flex-col xl:flex-row gap-8">
@@ -10,12 +13,12 @@ const Mission = () => {
                         <h3 className="text-xl text-giants-orange">
                             GET YOUR FREE <span className="text-oxford-blue">CONSULTATION &<br/>QUOTE</span>
                         </h3>
-                        <form className="mt-6">
-                            <input name="fullName" type="text" className="w-full bg-gray-100 p-2" placeholder="Full Name*" />
-                            <input name="email" type="email" className="w-full bg-gray-100 p-2 mt-4" placeholder="Email*" />
-                            <input name="subject" type="text" className="w-full bg-gray-100 p-2 mt-4" placeholder="Subject*" />
-                            <input type="file" name="myfile" className="mt-4"/>
-                            <textarea name="message" rows={4} className="w-full bg-gray-100 p-2 mt-4" placeholder="Message*"></textarea>
+                        <form onSubmit={handleSubmit(onSubmit)} className="mt-6">
+                            <input {...register("name", { required: true })} type="text" className="w-full bg-gray-100 p-2" placeholder="Name*" />
+                            <input {...register("email", { required: true })} type="email" className="w-full bg-gray-100 p-2 mt-4" placeholder="Email*" />
+                            <input {...register("subject", { required: true })} type="text" className="w-full bg-gray-100 p-2 mt-4" placeholder="Subject*" />
+                            <input {...register("file", { required: true })} type="file" className="mt-4"/>
+                            <textarea {...register("message", { required: true })} rows={4} className="w-full bg-gray-100 p-2 mt-4" placeholder="Message*"></textarea>
                             <button className="w-full shadow-lg bg-black text-white px-6 py-2 hover:bg-gray-900 mt-2">Send</button>
                         </form>
                     </div>

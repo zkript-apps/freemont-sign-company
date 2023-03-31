@@ -20,7 +20,7 @@ const Footer = () => {
             </div>
             <div className="flex flex-col lg:flex-row gap-6">
                 <Link href="/contact" className="shadow-lg bg-black text-white font-semibold px-6 py-2 hover:bg-gray-900">GET IN TOUCH</Link>
-                <Link href="/contact" className="shadow-lg bg-white text-black font-semibold px-6 py-2 hover:bg-gray-100">MAKE PAYMENT</Link>
+                <Link href="/make-payment" className="shadow-lg bg-white text-black font-semibold px-6 py-2 hover:bg-gray-100">MAKE PAYMENT</Link>
             </div>
         </div>
         <div className="flex flex-col px-6 xl:px-80 py-14 bg-oxford-blue divide-y divide-white">
