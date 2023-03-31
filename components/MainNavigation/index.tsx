@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import MobileMenu from './MobileMenu'
+import Link from 'next/link'
 
 const MainNavigation = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -42,12 +43,14 @@ const MainNavigation = () => {
             </div>
             <div className="py-3 px-6 shadow-md flex items-center">
                 <div className="flex-1">
-                    <Image
-                        src="/fremont_logo.png"
-                        width="230"
-                        height="210"
-                        alt="Main Logo"
-                    />
+                    <Link href="/">
+                        <Image
+                            src="/fremont_logo.png"
+                            width="230"
+                            height="210"
+                            alt="Main Logo"
+                        />
+                    </Link>
                 </div>
                 <div className="hidden gap-10 xl:flex">
                     {NAVIGATION_MENU.map((menu, index) => {

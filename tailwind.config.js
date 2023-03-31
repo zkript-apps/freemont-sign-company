@@ -21,6 +21,7 @@ module.exports = {
         "giants-orange": "#FA611E",
         "oxford-blue": "#171F32",
         "rich-black": "#101726",
+        "sgbus-green": "#81D741",
         seasalt: "#FAFAFA",
         silver: "#A8A4A4",
         ...colors,

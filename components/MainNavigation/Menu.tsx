@@ -34,7 +34,7 @@ const Menu = ({ name, url, subMenu }: { name: string, url: string, subMenu: { na
             onHoverStart={toggleHoverMenu}
             onHoverEnd={toggleHoverMenu}
         >
-            <Link href={url} className="font-semibold text-sm group-hover:text-giants-orange">{name}</Link>
+            <Link href={url} className="font-semibold text-sm group-hover:text-giants-orange" onClick={() => toggleHoverMenu()}>{name}</Link>
             {subMenu.length > 0 && (
                 <motion.div
                     className="bg-white shadow-md py-4 absolute"
@@ -44,7 +44,7 @@ const Menu = ({ name, url, subMenu }: { name: string, url: string, subMenu: { na
                 >
                     <div className="flex flex-col">
                         {subMenu.map((item, index) => {
-                            return <Link href={item.url} className="text-black hover:bg-giants-orange hover:text-white px-6 py-2 text-sm" key={index}>{item.name}</Link>
+                            return <a href={item.url} onClick={() => toggleHoverMenu()} className="text-black hover:bg-giants-orange hover:text-white px-6 py-2 text-sm" key={index}>{item.name}</a>
                         })}
                     </div>
                 </motion.div>

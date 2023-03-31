@@ -1,9 +1,10 @@
+"use client"
 import Image from 'next/image'
 import React from 'react'
 import { useForm } from "react-hook-form";
 
 const Mission = () => {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit } = useForm();
     const onSubmit = data => console.log(data);
     return (
         <div className="py-24 px-8 xl:px-80">
