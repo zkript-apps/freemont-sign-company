@@ -1,11 +1,63 @@
 "use client"
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from "react-hook-form";
 
+type FormData = {
+    name: string,
+    email: string,
+    subject: string,
+    file: HTMLInputElement,
+    message: string,
+}
+
 const Mission = () => {
-    const { register, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
+    const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>();
+    const [isSubmitLoading, setIsSubmitLoading] = useState(false);
+    const [isSuccess, setIsSuccess] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
+    const fileToBase64 = (file) => {
+        return new Promise(resolve => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = function () {
+                resolve(reader.result);
+            };
+        });
+      };
+    const onSubmit = async (data) => {
+        setIsSubmitLoading(true); 
+        fileToBase64(data.file[0]).then(async (result) => {
+            const toSubmit = {
+                email: "jepoyyy0225@gmail.com",
+                subject: "Free Consultation & Quote",
+                message: `<p>Someone submitted a  Free Consultation & Quote in your website https://fremontsigncompany.com</p><p>Name: <b>${data.name}</b></p><p>Email: <b>${data.email}</b></p><p>Subject: <b>${data.subject}</b></p><p>Message: <b>${data.message}</b></p>`,
+                file: result,
+            }
+            const submit = await fetch('/api/mailer', {
+                method: "POST",
+                mode: "cors",
+                cache: "no-cache", 
+                credentials: "same-origin",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                redirect: "follow",
+                referrer: "no-referrer",
+                body: JSON.stringify(toSubmit)
+            })
+            const res = await submit.json();
+            if(res.success) {
+                setIsSuccess(true);
+                setErrorMessage("");
+                reset();
+                alert("Form was submitted!")
+            } else {
+                setErrorMessage("Something went wrong")
+            }
+            setIsSubmitLoading(false);
+        });
+    };
     return (
         <div className="py-24 px-8 xl:px-80">
             <div className="flex flex-col xl:flex-row gap-8">
@@ -14,13 +66,15 @@ const Mission = () => {
                         <h3 className="text-xl text-giants-orange">
                             GET YOUR FREE <span className="text-oxford-blue">CONSULTATION &<br/>QUOTE</span>
                         </h3>
+                        {!isSuccess && errorMessage ? <p className="text-red-500 mb-4">{errorMessage}</p> : null}
+                        {errors.reference || errors.amount ? <p className="text-red-500 mb-4">Some required fields are empty</p> : null}
                         <form onSubmit={handleSubmit(onSubmit)} className="mt-6">
-                            <input {...register("name", { required: true })} type="text" className="w-full bg-gray-100 p-2" placeholder="Name*" />
-                            <input {...register("email", { required: true })} type="email" className="w-full bg-gray-100 p-2 mt-4" placeholder="Email*" />
-                            <input {...register("subject", { required: true })} type="text" className="w-full bg-gray-100 p-2 mt-4" placeholder="Subject*" />
-                            <input {...register("file", { required: true })} type="file" className="mt-4"/>
-                            <textarea {...register("message", { required: true })} rows={4} className="w-full bg-gray-100 p-2 mt-4" placeholder="Message*"></textarea>
-                            <button className="w-full shadow-lg bg-black text-white px-6 py-2 hover:bg-gray-900 mt-2">Send</button>
+                            <input {...register("name", { required: true })} type="text" className="w-full bg-gray-100 p-2 disabled:opacity-80 disabled:cursor-progress" placeholder="Name*" disabled={isSubmitLoading} />
+                            <input {...register("email", { required: true })} type="email" className="w-full bg-gray-100 p-2 mt-4 disabled:opacity-80 disabled:cursor-progress" placeholder="Email*" disabled={isSubmitLoading} />
+                            <input {...register("subject", { required: true })} type="text" className="w-full bg-gray-100 p-2 mt-4 disabled:opacity-80 disabled:cursor-progress" placeholder="Subject*" disabled={isSubmitLoading} />
+                            <input {...register("file", { required: true })} type="file" className="mt-4 disabled:opacity-80 disabled:cursor-progress" disabled={isSubmitLoading} />
+                            <textarea {...register("message", { required: true })} rows={4} className="w-full bg-gray-100 p-2 mt-4 disabled:opacity-80 disabled:cursor-progress" placeholder="Message*" disabled={isSubmitLoading}></textarea>
+                            <button className="w-full shadow-lg bg-black text-white px-6 py-2 hover:bg-gray-900 mt-2 disabled:opacity-80 disabled:cursor-progress" disabled={isSubmitLoading}>Send</button>
                         </form>
                     </div>
                 </div>

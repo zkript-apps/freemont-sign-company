@@ -10,6 +10,14 @@ const handler = async (req: any, res: any) => {
     try {
       await transporter.sendMail({
         ...mailOptions,
+        ...(data.file && {
+          attachments: [
+            {
+              // data uri as an attachment
+              path: data.file,
+            },
+          ],
+        }),
         to: data.email,
         text: data.message,
         html: data.message,
