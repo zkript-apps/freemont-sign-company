@@ -2,8 +2,10 @@
 import React from 'react'
 import { motion } from "framer-motion";
 import Link from 'next/link';
+import { usePathname } from "next/navigation";
 
 const Menu = ({ name, url, subMenu }: { name: string, url: string, subMenu: { name: string, url: string }[] }) => {
+    const pathname = usePathname();
     const [isHover, toggleHover] = React.useState(false);
     const toggleHoverMenu = () => {
         toggleHover(!isHover);
@@ -34,7 +36,7 @@ const Menu = ({ name, url, subMenu }: { name: string, url: string, subMenu: { na
             onHoverStart={toggleHoverMenu}
             onHoverEnd={toggleHoverMenu}
         >
-            <Link href={url} className="font-semibold text-sm group-hover:text-giants-orange" onClick={() => toggleHoverMenu()}>{name}</Link>
+            <Link href={url} className={`font-semibold text-sm group-hover:text-giants-orange ${pathname === url ? "text-giants-orange" : ""}`} onClick={() => toggleHoverMenu()}>{name}</Link>
             {subMenu.length > 0 && (
                 <motion.div
                     className="bg-white shadow-md py-4 absolute"

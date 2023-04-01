@@ -32,7 +32,7 @@ const MainNavigation = () => {
         }
     };
     return (
-        <>
+        <div className="fixed w-full z-50">
             <div className="bg-seasalt px-6 py-2 hidden md:flex">
                 <div className="flex-1">
                     <p className="text-silver text-sm">Fremont, CA 94538</p>
@@ -41,7 +41,7 @@ const MainNavigation = () => {
                     <p className="text-silver text-sm">510-573-3162 | fremontsigncompany@gmail.com</p>
                 </div>
             </div>
-            <div className="py-3 px-6 shadow-md flex items-center">
+            <div className="py-3 px-6 shadow-md flex items-center bg-white">
                 <div className="flex-1">
                     <Link href="/">
                         <Image
@@ -73,7 +73,7 @@ const MainNavigation = () => {
                     })}
                 </div>
             </motion.div>
-        </>
+        </div>
     )
 }
 

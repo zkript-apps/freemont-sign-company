@@ -17,7 +17,7 @@ const Hero = () => {
                 <h1 className="text-white font-bold text-4xl mt-10">NATIONWIDE SIGNAGE<br/>AND BRANDING SOLUTION</h1>
                 <p className="text-white mt-10">Our staff will work with your designer or our in house<br/>designers will help you make a lasting impression.</p>
                 <div className="mt-12">
-                    <Link href="/contact" className="shadow-lg bg-giants-orange text-white font-semibold px-6 py-2 hover:opacity-70">GET IN TOUCH</Link>
+                    <Link href="/services" className="shadow-lg bg-giants-orange text-white font-semibold px-6 py-3 hover:opacity-70">LEARN MORE</Link>
                 </div>
             </div>
             <div className="flex-none max-w-[512px]">
@@ -41,7 +41,7 @@ const Hero = () => {
                     </SwiperSlide>
                     <SwiperSlide>
                         <Image
-                            src="/signage-fremont.jpg"
+                            src="/wine-works.png"
                             width="512"
                             height="512"
                             alt="Message"
@@ -49,7 +49,7 @@ const Hero = () => {
                     </SwiperSlide>
                     <SwiperSlide>
                         <Image
-                            src="/signage-fremont.jpg"
+                            src="/ds-works.png"
                             width="512"
                             height="512"
                             alt="Message"
@@ -57,7 +57,7 @@ const Hero = () => {
                     </SwiperSlide>
                     <SwiperSlide>
                         <Image
-                            src="/signage-fremont.jpg"
+                            src="/mountain-works.png"
                             width="512"
                             height="512"
                             alt="Message"
@@ -65,7 +65,7 @@ const Hero = () => {
                     </SwiperSlide>
                     <SwiperSlide>
                         <Image
-                            src="/signage-fremont.jpg"
+                            src="/dennys-sign.jpg"
                             width="512"
                             height="512"
                             alt="Message"
@@ -73,7 +73,7 @@ const Hero = () => {
                     </SwiperSlide>
                     <SwiperSlide>
                         <Image
-                            src="/signage-fremont.jpg"
+                            src="/subway-sign.jpg"
                             width="512"
                             height="512"
                             alt="Message"

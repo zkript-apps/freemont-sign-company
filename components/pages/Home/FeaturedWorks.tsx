@@ -39,7 +39,7 @@ const FeaturedWorks = () => {
                 />
             </div>
             <div className="mt-12 flex justify-center">
-                <Link href="/" className="shadow-lg bg-giants-orange text-white font-semibold px-6 py-2 hover:opacity-70">SEE MORE PHOTOS</Link>
+                <Link href="/signage" className="shadow-lg bg-giants-orange text-white font-semibold px-6 py-2 hover:opacity-70">SEE MORE PHOTOS</Link>
             </div>
         </div>
     )
