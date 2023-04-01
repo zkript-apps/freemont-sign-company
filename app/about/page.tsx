@@ -5,7 +5,7 @@ import { metaBuilder } from "@/helpers/metaBuilder";
 export async function generateMetadata() {
   return metaBuilder({
     title: 'About - Fremont Sign Company',
-    description: 'asdasdasd',
+    description: 'Over the years, we have dedicated ourselves to meet the production requirements of all of our clients. We take pride in the strong working relationships that we develop with our clients.',
   });
 }
 

@@ -47,11 +47,7 @@ const MobileMenu = ({ name, url, subMenu }: { name: string, url: string, subMenu
                     >
                         <div className="flex flex-col">
                             {subMenu.map((menu, index) => {
-                                return (
-                                    <div key={index} className="hover:cursor-pointer p-3 hover:bg-giants-orange hover:text-white">
-                                        <Link href={menu.url} className="flex-1 font-semibold text-sm">{menu.name}</Link>
-                                    </div>
-                                )
+                                return <a key={index} href={menu.url} className="flex-1 font-semibold text-sm hover:cursor-pointer p-3 hover:bg-giants-orange hover:text-white">{menu.name}</a>;
                             })}
                         </div>
                     </motion.div>
