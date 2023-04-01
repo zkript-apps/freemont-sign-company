@@ -45,10 +45,11 @@ export const NAVIGATION_MENU = [
     url: "/services",
     name: "SERVICES",
     subMenu: [
-      { url: "/services/#engineering", name: "Engineering" },
-      { url: "/services/#design", name: "Design" },
-      { url: "/services/#permits", name: "Permits" },
-      { url: "/services/#sign-master-program", name: "Sign Master Program" },
+      { url: "/services/engraving", name: "Engraving" },
+      { url: "/services/engineering", name: "Engineering" },
+      { url: "/services/design", name: "Design" },
+      { url: "/services/permits", name: "Permits" },
+      { url: "/services/sign-master-program", name: "Sign Master Program" },
     ],
   },
   {
