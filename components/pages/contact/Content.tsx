@@ -131,7 +131,7 @@ const Content = () => {
             <div className="mt-32">{renderMap()}</div>
             <div className="mt-32">
                 {!isSuccess && errorMessage ? <p className="text-red-500 mt-4 mb-4">{errorMessage}</p> : null}
-                {errors ? <p className="text-red-500 mt-4 mb-4">Some required fields are empty</p> : null}
+                {Object.keys(errors).length > 0 ? <p className="text-red-500 mt-4 mb-4">Some required fields are empty</p> : null}
                 <h3 className="text-2xl">Service Request Form</h3>
                 <p className="text-gray-300">Fields marked with an * are required</p>
                 <form onSubmit={handleSubmit(onSubmit)} className="mt-6">

@@ -67,7 +67,7 @@ const Mission = () => {
                             GET YOUR FREE <span className="text-oxford-blue">CONSULTATION &<br/>QUOTE</span>
                         </h3>
                         {!isSuccess && errorMessage ? <p className="text-red-500 mb-4">{errorMessage}</p> : null}
-                        {errors ? <p className="text-red-500 mb-4">Some required fields are empty</p> : null}
+                        {Object.keys(errors).length > 0 ? <p className="text-red-500 mb-4">Some required fields are empty</p> : null}
                         <form onSubmit={handleSubmit(onSubmit)} className="mt-6">
                             <input {...register("name", { required: true })} type="text" className="w-full bg-gray-100 p-2 disabled:opacity-80 disabled:cursor-progress" placeholder="Name*" disabled={isSubmitLoading} />
                             <input {...register("email", { required: true })} type="email" className="w-full bg-gray-100 p-2 mt-4 disabled:opacity-80 disabled:cursor-progress" placeholder="Email*" disabled={isSubmitLoading} />
