@@ -1,8 +1,8 @@
-import Clients from "@/components/pages/Home/Clients";
-import FeaturedWorks from "@/components/pages/Home/FeaturedWorks";
-import Hero from "@/components/pages/Home/Hero";
-import Mission from "@/components/pages/Home/Mission";
-import Services from "@/components/pages/Home/Services";
+import Clients from "@/components/pages/front/Clients";
+import FeaturedWorks from "@/components/pages/front/FeaturedWorks";
+import Hero from "@/components/pages/front/Hero";
+import Mission from "@/components/pages/front/Mission";
+import Services from "@/components/pages/front/Services";
 
 export default function Home() {
   return (
